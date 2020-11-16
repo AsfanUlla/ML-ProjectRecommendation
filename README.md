@@ -2,4 +2,4 @@
 
 Output -
 
-![Alt text](ml-pr-out.png?raw=true "Title")
+![Program Output](./ml-pr-out.PNG?raw=true "Title")
