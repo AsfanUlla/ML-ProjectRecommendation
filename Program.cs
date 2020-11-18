@@ -13,7 +13,7 @@ namespace ProjectRecommender
             (IDataView trainingDataView, IDataView testDataView) = LoadData(mlContext);
             ITransformer model = BuildAndTrainModel(mlContext, trainingDataView);
             EvaluateModel(mlContext, testDataView, model);
-            UseModelForSinglePrediction(mlContext, model);
+            ModelPrediction(mlContext, model);
             SaveModel(mlContext, trainingDataView.Schema, model);
         }
 
@@ -59,7 +59,7 @@ namespace ProjectRecommender
             Console.WriteLine("RSquared: " + metrics.RSquared.ToString());
         }
 
-        public static void UseModelForSinglePrediction(MLContext mlContext, ITransformer model)
+         public static void ModelPrediction(MLContext mlContext, ITransformer model)
         {
             Console.WriteLine("=============== Making a prediction ===============");
             var predictionEngine = mlContext.Model.CreatePredictionEngine<ProjectRating, ProjectRatingPrediction>(model);
